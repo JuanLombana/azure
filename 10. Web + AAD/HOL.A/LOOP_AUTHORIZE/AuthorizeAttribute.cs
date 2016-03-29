@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace WebApp_RoleClaims_DotNet
+namespace WebApplication1
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
     public class AuthorizeAttribute : System.Web.Mvc.AuthorizeAttribute
@@ -18,10 +18,6 @@ namespace WebApp_RoleClaims_DotNet
         {
             if (filterContext.HttpContext.Request.IsAuthenticated)
             {
-                //One Strategy:
-                //filterContext.Result = new System.Web.Mvc.HttpStatusCodeResult((int)System.Net.HttpStatusCode.Forbidden);
-
-                //Another Strategy:
                 filterContext.Result = new RedirectToRouteResult(
                     new RouteValueDictionary(
                         new

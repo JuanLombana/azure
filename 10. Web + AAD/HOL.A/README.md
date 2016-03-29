@@ -17,12 +17,15 @@ En este laboratorio usaremos Azure Active Directory como proveedor de autenticac
 1. Inicie Visual Studio y cree un nuevo proyecto web ASP.NET. <br/>![add3](img/03.jpg)
 2. Seleccione el tipo de proyecto MVC
 3. Haga click en el botón cambiar autenticación
-4. Seleccione "Cuentas Organizacionales" (El nombre podría cambiar según la versión de visual studio). <br/>![add4](img/04.jpg)
+4. Seleccione "Cuentas de Trabajo y escuela" (El nombre podría cambiar según la versión de visual studio). <br/>![add4](img/04.jpg)
 5. En el campo Dominio ingrese el dominio asociado a su tenant de directorio activo.
 6. Podrá encontrar el dominio de su tenant en la pestaña dominio del portal administrativo de azure.
 7. Haga Click en aceptar.
     * Quizás se le pida usuario y contraseña, ingrese con los datos de su suscripción.
     * Este paso creara la aplicación y la registrará ante azure, ademas de preparar el proyecto con las configuraciones necesarias para autenticarse con el directorio activo de azure.
+8. Si seleccionó la opción de "Hospedar en la nube" debe ver una pantalla como la siguiente <br/>![aad5](img/05.jpg)
+	* Ingrese los datos correspondientes al nombre de la aplicación, el grupo de recursos y el plan de servicio, esto creará en su suscripción de Azure una Web App para publicar la aplicación en un futuro.
+	* Puede Optar por Oprimir ESC y omitir este paso, la aplicación se creeará igualmente y más adelante podrá configurar estos valores para publicarla en Azure.
 8. Corra la aplicación en modo Debug (F5).
     * Es posible que el proyecto le pregunte sobre permisos para confiar en un certificado SSL de prueba, acepte dichos permisos para que la aplicación pueda continuar.
 9. Explore la aplicación, autentiquese, y cierre sesión.
@@ -105,5 +108,14 @@ Al finalizar la sección appRoles debe ser similar a la siguiente:
     * [Authorize(Roles="Admin")]
 3. A la acción "Contact" agreguele el siguiente atributo.
     * [Authorize(Roles="Viewer")]
-4. Corra la aplicación, pruebe cerrando sesión y autenticandose con los dos usuarios que tienen roles diferentes.
+4. En caso de estar Usando Visual Studio 2015, debe hacer unas modificaciones al proyecto, pues es posible que al intentar autenticarse este se quede en un Loop.
+	* Cree una clase llamada "AuthorizeAttribute" en la raíz del proyecto.
+	* Copie y Pegue el código de la siguiente dirección https://github.com/Ninja-Labs/azure/blob/master/10.%20Web%20%2B%20AAD/HOL.A/LOOP_AUTHORIZE/AuthorizeAttribute.cs
+	* Asegurese de cambiar el namespace de esta clase por el de su proyecto.
+	* Modifique el archivo Startup.auth.cs de la carpeta App_Start y copiele el siguiente contenido
+	* Asegurese de cambiar el namespace de esta clase por el de su proyecto.
+	* Cree un nuevo contraldor en su proyecto con el nombre "ErrorController".
+	* Copie y pegue el siguiente contenido en su controlador 
+	* Asegurese de cambiar el namespace de esta clase por el de su proyecto.
+5. Corra la aplicación, pruebe cerrando sesión y autenticandose con los dos usuarios que tienen roles diferentes.
     * Intente en ambos casos ingresar a la pagina about y contact, para cada una verá si tiene o no permisos según la configuración de autorización del rol en la aplicación web.

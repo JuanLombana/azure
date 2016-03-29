@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace WebApplication1.Controllers
+{
+    public class ErrorController : Controller
+    {
+        /// <summary>
+        ///     Shows an on-screen error message when the user attemps various
+        ///     illegal actions.
+        /// </summary>
+        /// <returns>Generic error <see cref="View" />.</returns>
+        public ActionResult ShowError(string errorMessage, string signIn)
+        {
+            ViewBag.SignIn = signIn;
+            ViewBag.ErrorMessage = errorMessage;
+            return View("Error");
+        }
+
+        public ActionResult Reauth(string redirectUri)
+        {
+            ViewBag.RedirectUri = redirectUri;
+            return View("Error");
+        }
+    }
+}
