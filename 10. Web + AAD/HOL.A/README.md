@@ -112,10 +112,10 @@ Al finalizar la sección appRoles debe ser similar a la siguiente:
 	* Cree una clase llamada "AuthorizeAttribute" en la raíz del proyecto.
 	* Copie y Pegue el código de la siguiente dirección https://github.com/Ninja-Labs/azure/blob/master/10.%20Web%20%2B%20AAD/HOL.A/LOOP_AUTHORIZE/AuthorizeAttribute.cs
 	* Asegurese de cambiar el namespace de esta clase por el de su proyecto.
-	* Modifique el archivo Startup.auth.cs de la carpeta App_Start y copiele el siguiente contenido
+	* Modifique el archivo Startup.auth.cs de la carpeta App_Start y copiele el siguiente contenido https://github.com/Ninja-Labs/azure/blob/master/10.%20Web%20%2B%20AAD/HOL.A/LOOP_AUTHORIZE/Startup.Auth.cs
 	* Asegurese de cambiar el namespace de esta clase por el de su proyecto.
 	* Cree un nuevo contraldor en su proyecto con el nombre "ErrorController".
-	* Copie y pegue el siguiente contenido en su controlador 
+	* Copie y pegue el siguiente contenido en su controlador https://github.com/Ninja-Labs/azure/blob/master/10.%20Web%20%2B%20AAD/HOL.A/LOOP_AUTHORIZE/ErrorController.cs
 	* Asegurese de cambiar el namespace de esta clase por el de su proyecto.
 5. Corra la aplicación, pruebe cerrando sesión y autenticandose con los dos usuarios que tienen roles diferentes.
     * Intente en ambos casos ingresar a la pagina about y contact, para cada una verá si tiene o no permisos según la configuración de autorización del rol en la aplicación web.
